@@ -1,0 +1,4 @@
+lxml
+chardet
+requests
+cssselect

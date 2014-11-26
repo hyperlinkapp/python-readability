@@ -2,14 +2,15 @@ import re
 import chardet
 
 def get_encoding(page):
+    str_page = page.decode()
     # Regex for XML and HTML Meta charset declaration
     charset_re = re.compile(r'<meta.*?charset=["\']*(.+?)["\'>]', flags=re.I)
     pragma_re = re.compile(r'<meta.*?content=["\']*;?charset=(.+?)["\'>]', flags=re.I)
     xml_re = re.compile(r'^<\?xml.*?encoding=["\']*(.+?)["\'>]')
 
-    declared_encodings = (charset_re.findall(page) +
-            pragma_re.findall(page) +
-            xml_re.findall(page))
+    declared_encodings = (charset_re.findall(str_page) +
+            pragma_re.findall(str_page) +
+            xml_re.findall(str_page))
 
     # Try any declared encodings
     if len(declared_encodings) > 0:

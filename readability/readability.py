@@ -380,6 +380,9 @@ class Document:
 
     def transform_misused_divs_into_paragraphs(self):
         for elem in self.tags(self.html, 'div'):
+            #print(type(elem))
+            #print(list(elem))
+            #print(tostring(list(elem)[0]))
             # transform <div>s that do not contain other block elements into
             # <p>s
             #FIXME: The current implementation ignores all descendants that
@@ -387,7 +390,7 @@ class Document:
             # This results in incorrect results in case there is an <img>
             # buried within an <a> for example
             if not REGEXES['divToPElementsRe'].search(
-                    str(''.join(map(tostring, list(elem))))):
+                    str(''.join(map(bytes.decode, map(tostring, list(elem)))))):
                 #self.debug("Altering %s to p" % (describe(elem)))
                 elem.tag = "p"
                 #print "Fixed element "+describe(elem)
