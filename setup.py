@@ -19,7 +19,7 @@ if sys.platform == 'darwin':
 
 setup(
     name="readability-lxml",
-    version="0.3.0.7",
+    version="0.3.0.8",
     author="Yuri Baburov",
     author_email="burchik@gmail.com",
     description="fast python port of arc90's readability tool",
@@ -30,8 +30,8 @@ setup(
     packages=['readability'],
     install_requires=[
         "chardet",
+        "cssselect",
         lxml_requirement
-        "cssselect"
         ],
     classifiers=[
         "Environment :: Web Environment",
