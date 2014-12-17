@@ -18,15 +18,15 @@ if sys.platform == 'darwin':
         lxml_requirement = "lxml<2.4"
 
 setup(
-    name="readability-lxml",
-    version="0.3.0.8",
+    name="PyReadability",
+    version="0.4.0",
     author="Yuri Baburov",
     author_email="burchik@gmail.com",
     description="fast python port of arc90's readability tool",
     test_suite = "tests.test_article_only",
     long_description=open("README").read(),
     license="Apache License 2.0",
-    url="http://github.com/buriy/python-readability",
+    url="http://github.com/hyperlinkapp/python-readability",
     packages=['readability'],
     install_requires=[
         "chardet",
